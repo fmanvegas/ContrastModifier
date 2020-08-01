@@ -4,6 +4,50 @@
              xmlns:local="clr-namespace:ContrastModifier"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <local:BackgroundConverter x:Key="backConvert"/>
+        <local:ForegroundConverter x:Key="foreConvert"/>
+       
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource backConvert}">
+                        <Binding Source="{x:Static local:ViewModel.Instance}" Path="MainWhite"/>
+                        <Binding Path="WindowWhite"/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource foreConvert}">
+                        <Binding Source="{x:Static local:ViewModel.Instance}" Path="MainWhite"/>
+                        <Binding Path="WindowWhite"/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        <Style TargetType="{x:Type GroupBox}" >
+            <Setter Property="Background">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource backConvert}">
+                        <Binding Source="{x:Static local:ViewModel.Instance}" Path="MainWhite"/>
+                        <Binding Path="WindowWhite"/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource foreConvert}">
+                        <Binding Source="{x:Static local:ViewModel.Instance}" Path="MainWhite"/>
+                        <Binding Path="WindowWhite"/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>
